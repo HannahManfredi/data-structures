@@ -1,3 +1,5 @@
+//FIFO, enter at back, leave from front
+
 var Queue = function() {
   var someInstance = {};
 
@@ -17,3 +19,8 @@ var Queue = function() {
 
   return someInstance;
 };
+
+//O:
+//I:
+//C:
+//E:
