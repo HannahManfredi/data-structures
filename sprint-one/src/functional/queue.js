@@ -1,31 +1,36 @@
-//FIFO, enter at back, leave from front
-
 var Queue = function() {
   var someInstance = {};
 
-  // Use an object with numeric keys to store values
   var storage = {};
   var count = 0;
+  var hasDequeued = 0;
+  someInstance.storage = storage;
+  someInstance.count = count;
+  someInstance.hasDequeued = hasDequeued;
 
   // Implement the methods below
 
-  someInstance.enqueue = function(value) { //{1:'a', 2:'b', 3:'c'} [1, 2, 3]
-    count ++;
-    storage[count] = value;
+  someInstance.enqueue = function(value) {
+    someInstance.count ++;
+    someInstance.storage[someInstance.count] = value;
   };
 
   someInstance.dequeue = function() {
-    var countKeys = Object.keys(storage);
-    console.log(countKeys);
-    var remove = countKeys[0]; //'a'
-    var dequeued = storage[remove];
-    delete storage[remove];
-    count --;
+    let countKeys = Object.keys(someInstance.storage);
+    var sorted = countKeys.sort((a, b) => a - b);
+    var remove = sorted.shift();
+    var dequeued = someInstance.storage[remove];
+    delete someInstance.storage[remove];
+    someInstance.hasDequeued ++;
     return dequeued;
   };
 
   someInstance.size = function() {
-    return count;
+    if (Object.keys(someInstance.storage).length <= 0) {
+      return 0;
+    } else {
+      return someInstance.count - someInstance.hasDequeued;
+    }
   };
 
   return someInstance;
