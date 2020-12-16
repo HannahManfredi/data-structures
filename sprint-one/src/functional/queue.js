@@ -8,25 +8,40 @@ var Queue = function() {
   someInstance.count = count;
   someInstance.hasDequeued = hasDequeued;
 
-  // Implement the methods below
-
   someInstance.enqueue = function(value) {
-    someInstance.count ++;
-    someInstance.storage[someInstance.count] = value;
+    if (someInstance.storage[1] === undefined) {
+      someInstance.storage[1] = value;
+      someInstance.count ++;
+    } else {
+      someInstance.count ++;
+      someInstance.storage[someInstance.count] = value;
+    }
   };
 
   someInstance.dequeue = function() {
-    let countKeys = Object.keys(someInstance.storage);
-    var sorted = countKeys.sort((a, b) => a - b);
-    var remove = sorted.shift();
-    var dequeued = someInstance.storage[remove];
-    delete someInstance.storage[remove];
+    if (someInstance.storage[1] === undefined) {
+      return null;
+    } else {
+      var removed = someInstance.storage[1];
+      delete someInstance.storage[1];
+      for (var key in someInstance.storage) {
+        var numKey = Number(key);
+        numKey --;
+        var old = someInstance.storage[key];
+        delete someInstance.storage[key];
+        someInstance.storage[numKey] = old;
+      }
+    }
     someInstance.hasDequeued ++;
-    return dequeued;
+    return removed;
   };
 
   someInstance.size = function() {
-    if (Object.keys(someInstance.storage).length <= 0) {
+    var size = 0;
+    _.each(someInstance.storage, function(val, key) {
+      size ++;
+    })
+    if (size <= 0) {
       return 0;
     } else {
       return someInstance.count - someInstance.hasDequeued;
@@ -35,3 +50,4 @@ var Queue = function() {
 
   return someInstance;
 };
+

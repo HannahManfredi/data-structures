@@ -1,7 +1,7 @@
 //LIFO, added to top (end), removed from top (end), beginning is last out
 
 //allows sequentially additing and removing items
-
+//"~/Desktop/rpt27/rpt27-data-structures/.git/.COMMIT_EDITMSG.swp"
 var Stack = function() {
   var someInstance = {};
 
