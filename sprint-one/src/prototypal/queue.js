@@ -12,13 +12,6 @@ var Queue = function() {
 
 };
 
-//{1: a, 2: b, 3: c}
-  //{1: a, 2: b}, count = 2
-//   queue.enqueue('a');
-// expect(queue.dequeue()).to.equal('a'); count = 1, hasDequeued = 1;
-// queue.enqueue('b');
-// expect(queue.dequeue()).to.equal('b');
-
 var queueMethods = {
 
   enqueue: function(val) {
