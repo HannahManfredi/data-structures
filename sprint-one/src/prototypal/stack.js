@@ -6,3 +6,8 @@ var Stack = function() {
 var stackMethods = {};
 
 
+// Do:
+// Work within the src/protoypal/ folder.
+// Use Object.create  with the object from step 2 to create instances of your class
+// Don't:
+// Use the keyword new

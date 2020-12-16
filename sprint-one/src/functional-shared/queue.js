@@ -21,8 +21,8 @@ var queueMethods = {
       this.storage[1] = value;
       this.count ++;
     } else {
-    this.count ++;
-    this.storage[this.count] = value;
+      this.count ++;
+      this.storage[this.count] = value;
     }
   },
 
