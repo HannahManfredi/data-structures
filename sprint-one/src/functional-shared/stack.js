@@ -6,17 +6,10 @@ var Stack = function() {
   stackInstance.storage = {};
   stackInstance.count = 0;
 
-  extend(stackInstance, stackMethods);
+  _.extend(stackInstance, stackMethods);
 
   return stackInstance;
 
-};
-
-var extend = function(obj1, obj2) {
-  for (var key in obj2) {
-    obj1[key] = obj2[key];
-  }
-  return obj1;
 };
 
 var stackMethods = {
