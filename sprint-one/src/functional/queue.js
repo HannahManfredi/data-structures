@@ -40,7 +40,7 @@ var Queue = function() {
     var size = 0;
     _.each(someInstance.storage, function(val, key) {
       size ++;
-    })
+    });
     if (size <= 0) {
       return 0;
     } else {
