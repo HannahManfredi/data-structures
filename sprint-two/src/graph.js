@@ -4,6 +4,8 @@ var Graph = function() {
   this.edges = {};
 };
 
+//{5: []}
+
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node) {
   this.nodes.push(node);
@@ -22,8 +24,8 @@ Graph.prototype.removeNode = function(node) {
   for (var edge in this.edges) {
     var arr = this.edges[edge];
     for (var i = 0; i < arr.length; i++) {
-        var idx = arr.indexOf(node);
-        arr.splice(idx, 1);
+      var idx = arr.indexOf(node);
+      arr.splice(idx, 1);
     }
   }
 };

@@ -5,6 +5,7 @@ var LinkedList = function() {
 
   //O(1)
   list.addToTail = function(value) {
+    //add different data type
     var node = Node(value);
     if (list.head === null) {
       list.head = node;

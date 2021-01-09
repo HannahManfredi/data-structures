@@ -37,4 +37,12 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3, 7]);
   });
+
+  //add test
+  it('should not be able to insert a duplicate value', function() {
+    var bst = new BinarySearchTree(10);
+    // var result = bst.insert(10);
+    expect(bst.insert(10)).to.equal('10 already exists and cannot be added.');
+  });
+
 });

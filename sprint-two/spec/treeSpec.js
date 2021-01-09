@@ -41,4 +41,23 @@ describe('tree', function() {
     expect(tree.contains(8)).to.equal(true);
   });
 
+  //add test 1
+  it('should be able to detect width of any depth of the tree', function() {
+    var tree = Tree(5);
+    tree.addChild(10);
+    tree.children[0].addChild(3);
+    tree.children[0].addChild(6);
+    tree.children[0].addChild(7);
+    expect(tree.children[0].children.length).to.equal(3);
+  });
+
+  //add test 2
+  it('should be able to track the depth of any node in the tree', function() {
+    var tree = Tree(1); //level 0, root
+    tree.addChild(2); //first child, level 1
+    tree.children[0].addChild(3); //level 2
+    tree.children[0].children[0].addChild(4); //level 3
+    expect(tree.children[0].children[0].children[0].level).to.equal(3);
+  });
+
 });

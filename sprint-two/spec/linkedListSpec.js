@@ -51,5 +51,19 @@ describe('linkedList', function() {
     expect(linkedList.contains(4)).to.equal(false);
   });
 
-  // add more tests here to test the functionality of linkedList
+  it('should only be able to add primitive data types to linked list', function() {
+    linkedList.addToTail('rabbit');
+    linkedList.addToTail([7]);
+    linkedList.addToTail(null);
+    linkedList.addToTail(undefined);
+    linkedList.addToTail({ one: 'ice cream'});
+    linkedList.removeHead();
+    expect(linkedList.contains(4)).to.equal(false);
+    expect(linkedList.contains('rabbit')).to.equal(false);
+    expect(linkedList.contains([7])).to.equal(false);
+    expect(linkedList.contains(null)).to.equal(true);
+    expect(linkedList.contains(undefined)).to.equal(true);
+    expect(linkedList.contains({ one: 'ice cream' })).to.equal(false);
+  });
+
 });

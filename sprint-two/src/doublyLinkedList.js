@@ -2,6 +2,7 @@
 //  A .removeTail() method which removes the last node from the list and returns its value.
 // Note: each node object will need to have a new .previous property pointing to the node behind it (or to null when appropriate); this is what makes it a doubly-linked list.
 
+//tail's previous is head's next
 var DoublyLinkedList = function() {
 
   var list = {};
@@ -19,6 +20,10 @@ var DoublyLinkedList = function() {
     this.tail = n;
   };
 
+  list.addToHead= function(value) {
+
+  };
+
   list.removeHead = function() {
     var head = this.head;
     if (head.next) {
@@ -28,6 +33,10 @@ var DoublyLinkedList = function() {
       this.head = null;
     }
     return head.value;
+  };
+
+  list.removeTail = function() {
+
   };
 
   list.contains = function(targetValue) {
